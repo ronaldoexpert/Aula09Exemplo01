@@ -6,6 +6,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -29,7 +31,9 @@ public class Janela extends JFrame{
         //ConfiguraBorderLayout();
         //ConfiguraLayoutAbsoluto();
         //ConfiguraGridLayout();
-        ConfiguraGridBagLayout();
+        //ConfiguraGridBagLayout();
+        //ConfiguraHorizontalBoxLayout();
+        ConfiguraVerticalBoxLayout();
         add(pnlPrincipal);
     }
 
@@ -114,14 +118,77 @@ public class Janela extends JFrame{
         GridBagConstraints gbc = new GridBagConstraints();
         
         pnlPrincipal.setLayout(gbl);      
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.gridheight = 1;
+        gbc.gridwidth = 1;
+        gbc.ipadx = 5;
+        gbc.ipady = 10;
+        gbc.fill = GridBagConstraints.CENTER;
+        
         pnlPrincipal.add(lbl01);
-        pnlPrincipal.add(txt01);        
+        gbl.setConstraints(lbl01, gbc);
+        
         pnlPrincipal.add(lbl02);
-        pnlPrincipal.add(txt02);        
+        gbc.gridy = 1;
+        gbl.setConstraints(lbl02, gbc);
+        
         pnlPrincipal.add(lbl03);
-        pnlPrincipal.add(txt03);        
+        gbc.gridy = 2;
+        gbl.setConstraints(lbl03, gbc);
+        
         pnlPrincipal.add(lbl04);
+        gbc.gridy = 3;
+        gbl.setConstraints(lbl04, gbc);
+        
+        
+        gbc.ipadx = 0;
+        gbc.ipady = 0;
+        
+        pnlPrincipal.add(txt01);        
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbl.setConstraints(txt01, gbc);    
+        
+        pnlPrincipal.add(txt02);
+        gbc.gridy++;
+        gbl.setConstraints(txt02, gbc);    
+        
+        pnlPrincipal.add(txt03);
+        gbc.gridy++;
+        gbl.setConstraints(txt03, gbc);    
+        
         pnlPrincipal.add(txt04);
+        gbc.gridy++;
+        gbl.setConstraints(txt04, gbc);    
+    }
+
+    private void ConfiguraHorizontalBoxLayout() {
+        Box horizontal = Box.createHorizontalBox();
+        horizontal.add(lbl01);
+        horizontal.add(txt01);        
+        horizontal.add(lbl02);
+        horizontal.add(txt02);        
+        horizontal.add(lbl03);
+        horizontal.add(txt03);        
+        horizontal.add(lbl04);
+        horizontal.add(txt04);
+        pnlPrincipal.add(horizontal);
+    }
+    
+    private void ConfiguraVerticalBoxLayout() {
+        Box vertical = Box.createVerticalBox();
+        vertical.add(lbl01);
+        vertical.add(txt01);        
+        vertical.add(lbl02);
+        vertical.add(txt02);        
+        vertical.add(lbl03);
+        vertical.add(txt03);        
+        vertical.add(lbl04);
+        vertical.add(txt04);
+        pnlPrincipal.add(vertical);
     }
     
 }
