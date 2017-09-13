@@ -2,6 +2,7 @@ package aula09exemplo01;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.HeadlessException;
@@ -27,7 +28,8 @@ public class Janela extends JFrame{
         //ConfiguraFlowLayout();
         //ConfiguraBorderLayout();
         //ConfiguraLayoutAbsoluto();
-        ConfiguraGridLayout();
+        //ConfiguraGridLayout();
+        ConfiguraGridBagLayout();
         add(pnlPrincipal);
     }
 
@@ -105,6 +107,21 @@ public class Janela extends JFrame{
         pnlPrincipal.add(txt03);        
         pnlPrincipal.add(lbl04);
         pnlPrincipal.add(txt04);   
+    }
+
+    private void ConfiguraGridBagLayout() {
+        GridBagLayout gbl = new GridBagLayout();
+        GridBagConstraints gbc = new GridBagConstraints();
+        
+        pnlPrincipal.setLayout(gbl);      
+        pnlPrincipal.add(lbl01);
+        pnlPrincipal.add(txt01);        
+        pnlPrincipal.add(lbl02);
+        pnlPrincipal.add(txt02);        
+        pnlPrincipal.add(lbl03);
+        pnlPrincipal.add(txt03);        
+        pnlPrincipal.add(lbl04);
+        pnlPrincipal.add(txt04);
     }
     
 }
